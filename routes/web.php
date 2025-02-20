@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
+// Basic Routing
 Route::get('/hello', function () {
     return 'Hello World';
 });
@@ -31,4 +32,17 @@ Route::get('/', function () {
 
 Route::get('/about', function () {
     return 'Evan Diantha Fafian : 2341760163';
+});
+
+// Route Parameters
+Route::get('/user/{name}', function ($name) {
+    return 'My name is ' . $name;
+});
+
+Route::get('/posts/{post}/comments/{comment}', function ($postId, $commentId) {
+    return 'Pos ke-' . $postId . " Komentar ke-: " . $commentId;
+});
+
+Route::get('/articles/{id}', function ($id) {
+    return 'Article Page with ID = ' . $id;
 });
