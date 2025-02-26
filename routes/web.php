@@ -159,18 +159,40 @@ use Illuminate\Support\Facades\Route;
 
 
 // Resource Controller
-use App\Http\Controllers\PhotoController;
+// use App\Http\Controllers\PhotoController;
 
-Route::resource('photo', PhotoController::class);
+// Route::resource('photo', PhotoController::class);
 
-Route::resource('photos', PhotoController::class)->only([
-    'index',
-    'show'
-]);
+// Route::resource('photos', PhotoController::class)->only([
+//     'index',
+//     'show'
+// ]);
 
-Route::resource('photos', PhotoController::class)->except([
-    'create',
-    'store',
-    'update',
-    'destroy'
-]);
+// Route::resource('photos', PhotoController::class)->except([
+//     'create',
+//     'store',
+//     'update',
+//     'destroy'
+// ]);
+
+
+
+
+
+
+
+// View
+// Creating View
+// Route::get('/greeting', function () {
+//     return view('hello', ['name' => 'Andi']);
+// });
+
+
+// View In Direktory
+// Route::get('/greeting', function () {
+//     return view('blog.hello', ['name' => 'Andi']);
+// });
+
+
+// Displaying a View from a Controller
+Route::get('/greeting', [WelcomeController::class, 'greeting']);
