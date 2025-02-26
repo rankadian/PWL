@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -135,10 +136,41 @@ use Illuminate\Support\Facades\Route;
 
 
 // Controller
-// Creating Controller
-Route::get('/hello', [WelcomeController::class, 'hello']);
+// // Creating Controller
+// Route::get('/hello', [WelcomeController::class, 'hello']);
 
 // Modification Creating Controller
-Route::get('/', []);
-Route::get('/');
-Route::get('/');
+// Post, Get, Put, Delete
+// Route::get('/', [PageController::class, 'index']);
+// Route::get('/about', [PageController::class, 'about']);
+// Route::get('/articles/{id}', [PageController::class, 'articles']);
+
+// Route::post('/', [PageController::class, 'index']);
+// Route::post('/about', [PageController::class, 'about']);
+// Route::post('/articles/{id}', [PageController::class, 'articles']);
+
+// Route::put('/', [PageController::class, 'index']);
+// Route::put('/about', [PageController::class, 'about']);
+// Route::put('/articles/{id}', [PageController::class, 'articles']);
+
+// Route::delete('/', [PageController::class, 'index']);
+// Route::delete('/about', [PageController::class, 'about']);
+// Route::delete('/articles/{id}', [PageController::class, 'articles']);
+
+
+// Resource Controller
+use App\Http\Controllers\PhotoController;
+
+Route::resource('photo', PhotoController::class);
+
+Route::resource('photos', PhotoController::class)->only([
+    'index',
+    'show'
+]);
+
+Route::resource('photos', PhotoController::class)->except([
+    'create',
+    'store',
+    'update',
+    'destroy'
+]);
